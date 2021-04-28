@@ -3,6 +3,7 @@ package confjson_test
 import (
 	"context"
 	"errors"
+	"fmt"
 	"strings"
 	"testing"
 
@@ -36,4 +37,15 @@ func TestParserErrors(t *testing.T) {
 	data := strings.NewReader(`{"foo": 42, "bar": "test"`)
 	c = conf.New().WithReaders(conf.NewStreamParser(data).WithParser(confjson.Parser))
 	require.EqualError(t, c.Load(context.Background()), "unexpected end of JSON input")
+}
+
+func ExampleParser() {
+	data := strings.NewReader(`{"foo": 42, "bar": "test"}`)
+	c := conf.New().WithReaders(conf.NewStreamParser(data).WithParser(confjson.Parser))
+	if err := c.Load(context.Background()); err != nil {
+		panic(err)
+	}
+
+	fmt.Println(c.GetInt("foo"))
+	// Output: 42
 }
