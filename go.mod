@@ -3,7 +3,7 @@ module github.com/sv-tools/conf-parser-json
 go 1.17
 
 require (
-	github.com/stretchr/testify v1.7.2
+	github.com/stretchr/testify v1.7.5
 	github.com/sv-tools/conf v1.2.1
 )
 
