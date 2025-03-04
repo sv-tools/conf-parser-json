@@ -7,13 +7,13 @@ import (
 )
 
 // Parser is a conf.ParseFunc to parse the given json
-func Parser(_ context.Context, r io.Reader) (interface{}, error) {
+func Parser(_ context.Context, r io.Reader) (any, error) {
 	data, err := io.ReadAll(r)
 	if err != nil {
 		return nil, err
 	}
 
-	var res interface{}
+	var res any
 	if err := json.Unmarshal(data, &res); err != nil {
 		return nil, err
 	}
