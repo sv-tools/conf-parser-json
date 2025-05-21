@@ -3,6 +3,7 @@ package confjson
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"io"
 )
 
@@ -10,12 +11,12 @@ import (
 func Parser(_ context.Context, r io.Reader) (any, error) {
 	data, err := io.ReadAll(r)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("failed to read data: %w", err)
 	}
 
 	var res any
 	if err := json.Unmarshal(data, &res); err != nil {
-		return nil, err
+		return nil, fmt.Errorf("failed to parse json: %w", err)
 	}
 
 	return res, nil

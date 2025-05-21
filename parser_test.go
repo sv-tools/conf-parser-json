@@ -36,7 +36,7 @@ func TestParserErrors(t *testing.T) {
 
 	data := strings.NewReader(`{"foo": 42, "bar": "test"`)
 	c = conf.New().WithReaders(conf.NewStreamParser(data).WithParser(confjson.Parser))
-	require.EqualError(t, c.Load(t.Context()), "unexpected end of JSON input")
+	require.ErrorContains(t, c.Load(t.Context()), "unexpected end of JSON input")
 }
 
 func ExampleParser() {
