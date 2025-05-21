@@ -7,6 +7,9 @@
 
 The [conf](https://github.com/sv-tools/conf) parser to JSON format.
 
+```shell
+go get github.com/sv-tools/conf-parser-json
+```
 
 ## License
 
