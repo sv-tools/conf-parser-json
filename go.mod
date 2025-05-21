@@ -4,7 +4,7 @@ go 1.24
 
 require (
 	github.com/stretchr/testify v1.10.0
-	github.com/sv-tools/conf v1.5.0
+	github.com/sv-tools/conf v1.6.0
 )
 
 require (
