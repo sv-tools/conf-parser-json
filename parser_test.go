@@ -9,6 +9,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 	"github.com/sv-tools/conf"
+
 	confjson "github.com/sv-tools/conf-parser-json"
 )
 
